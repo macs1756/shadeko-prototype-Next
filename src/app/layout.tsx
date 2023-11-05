@@ -1,3 +1,4 @@
+import { Footer } from '@/Components/Footer'
 import Header from '@/Components/Header'
 import type { Metadata } from 'next'
 import { Inter} from 'next/font/google'
@@ -13,14 +14,17 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
+    <html>
+      <body className='h-full flex flex-col min-h-[100vh]'>
+      <Header />
+      <main className='flex-1 flex items-center'>
         {children}
-        </body>
+      </main>  
+      <Footer />
+      </body>
     </html>
-  )
+  );
 }
